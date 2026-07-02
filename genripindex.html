@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="status-msg">読み込み中...</div>
+
+<div class="main-wrapper">
+    <div class="tier-container" id="tier-container">
+        <div class="row">
+            <div class="label s" contenteditable="true">S</div>
+            <div class="drop-area"></div>
+            <div class="row-controls">
+                <input type="color" class="color-picker" value="#ff7f7f">
+                <button class="move-row-handle">☰</button>
+                <button class="del-row-btn">×</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="label a" contenteditable="true">A</div>
+            <div class="drop-area"></div>
+            <div class="row-controls">
+                <input type="color" class="color-picker" value="#ffbf7f">
+                <button class="move-row-handle">☰</button>
+                <button class="del-row-btn">×</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="label b" contenteditable="true">B</div>
+            <div class="drop-area"></div>
+            <div class="row-controls">
+                <input type="color" class="color-picker" value="#ffff7f">
+                <button class="move-row-handle">☰</button>
+                <button class="del-row-btn">×</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="add-row-btn">+ 新しい行を追加</button>
+    <button id="save-img-btn" style="margin: 10px; padding: 12px; cursor: pointer; background: #28a745; color: #fff; border: none; font-weight: bold;">
+        📷 結果を画像として保存
+    </button>
+    <div class="pool-wrapper" id="pool-wrapper">
+        <button id="toggle-btn">想起カードを非表示 ▼</button>
+        <div class="pool" id="character-pool"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+/* 全体レイアウト */
+html, body {
+    height: auto;
+    min-height: 100dvh;
+    padding: 0;
+    margin: 0;
+    background: #1a1a1a;
+    color: white;
+    font-family: sans-serif;
+}
+
+.main-wrapper {
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+    transition: height 0.3s ease;
+}
+.main-wrapper:has(.pool-wrapper.closed) {
+    height: auto;
+}
+
+/* ランクエリア：ここがスクロールする */
+.tier-container {
+    flex: 1 auto;
+    overflow-y: auto;
+    padding: 10px;
+    -webkit-overflow-scrolling: touch; 
+}
+.main-wrapper:has(.pool-wrapper.closed) .tier-container {
+    max-height: none;   
+    overflow-y: visible;
+}
+/* poolの引き出し */
+.pool-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: #333;
+    border-top: 2px solid #555;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+.pool-wrapper.closed {
+    border-top: none;
+}
+/* 開閉 */
+#toggle-btn {
+    width: 100%;
+    height: 60px; 
+    background: #444;
+    color: #ffeb3b;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* pool本体 */
+.pool {
+    height: 35dvh;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    transition: height 0.3s ease;
+    background: #222;
+}
+.pool-wrapper.closed .pool {
+    height: 0;
+    padding: 0;
+}
+
+/* アイコンサイズ調整 */
+.item {
+    width: 130px;
+    height: auto;
+    margin: 0px;
+    cursor: grab;
+    flex-shrink: 0;
+    background: none;
+}
+
+/* 画面幅が600px以下の時だけ適用 */
+@media (max-width: 600px) {
+    .drop-area {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    .label {
+        width: 40px;
+        font-size: 16px;
+    }
+    .row {
+        min-height: auto; 
+    }   
+    .pool {
+        height: 40dvh; 
+    }
+    .drop-area {
+        min-height: 44px;
+    }
+    .pool::-webkit-scrollbar,
+    .tier-container::-webkit-scrollbar {
+     width: 8px;
+     height: 8px;
+    }
+    .pool::-webkit-scrollbar-track,
+    .tier-container::-webkit-scrollbar-track {
+        background: #222; 
+        border-radius: 10px;
+    }
+    .pool::-webkit-scrollbar-thumb,
+    .tier-container::-webkit-scrollbar-thumb {
+        background: #555;
+        border-radius: 10px;
+        border: 2px solid #222;
+    }
+    .pool::-webkit-scrollbar-thumb:hover,
+    .tier-container::-webkit-scrollbar-thumb:active {
+        background: #ffeb3b;
+    }
+    .pool, .tier-container {
+        scrollbar-width: thin;   
+        scrollbar-color: #555 #222; 
+    }
+}
+
+.item img { width: 100%; height:auto; display: block; pointer-events: none; }
+
+.row {
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid #333;
+    min-height: auto;
+    justify-content: space-between; 
+    align-items: stretch;
+}
+.label { width: 80px; display: flex; flex-shrink: 0; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; color: #000; }
+
+.drop-area { flex-grow: 1; flex-shrink: 1; display: flex; flex-wrap: wrap; padding: 2px; background: #222; min-height: 80px; }
+
+.label:focus {
+    outline: 2px solid #ffeb3b;
+    background: #444 !important;
+    color: #fff !important;
+}
+/* ランクの色 */
+.s { background: #ff7f7f; }
+.a { background: #ffbf7f; }
+.b { background: #ffff7f; }
+#status-msg { color: #ffeb3b; padding: 5px; font-size: 12px; background: #000; }
+
+.row-controls {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    background: #333;
+    padding: 5px;
+    gap: 5px;
+    justify-content: center;
+    border-left: 1px solid #444;
+    width: 30px;
+}
+.color-picker { padding: 0; width: 30px; height: 30px; border: none; cursor: pointer; background: none; }
+.del-row-btn, .move-row-handle { background: #444; color: white; border: 1px solid #555; cursor: pointer; width: 30px; height: 30px; border-radius: 4px; font-weight: bold; display: flex; align-items: center; justify-content: center; }
+.del-row-btn { background: #600; border: none; }
+.del-row-btn:hover { background: #f00; }
+.move-row-handle { cursor: move; background: #555; color: #ffeb3b; }
