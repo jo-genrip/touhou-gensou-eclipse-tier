@@ -137,19 +137,28 @@ saveImgBtn.addEventListener('click', () => {
     saveImgBtn.style.display = 'none';
     rowControls.forEach(control => control.style.display = 'none');
 
+    const targetWidth = 910;
+    
     html2canvas(target, {
         useCORS: true,
         backgroundColor: '#1a1a1a',
-        windowWidth: 860, // 
+        windowWidth: targetWidth,
         onclone: (clonedDoc) => {
             const clonedTarget = clonedDoc.getElementById('tier-container');
-            clonedTarget.style.width = '860px';
+            clonedTarget.style.width = targetWidth + 'px';
+            
+            const clonedRows = clonedDoc.querySelectorAll('.row');
+            clonedRows.forEach(row => {
+                row.style.width = targetWidth + 'px';
+                row.style.display = 'flex';
+            });
             
             const clonedDropAreas = clonedDoc.querySelectorAll('.drop-area');
             clonedDropAreas.forEach(area => {
                 area.style.flexWrap = 'wrap';
                 area.style.overflowX = 'visible';
                 area.style.whiteSpace = 'normal';
+                area.style.width = 'auto';
             });
             
             const clonedLabels = clonedDoc.querySelectorAll('.label');
