@@ -140,6 +140,24 @@ saveImgBtn.addEventListener('click', () => {
     html2canvas(target, {
         useCORS: true,
         backgroundColor: '#1a1a1a',
+        windowWidth: 860, // 
+        onclone: (clonedDoc) => {
+            const clonedTarget = clonedDoc.getElementById('tier-container');
+            clonedTarget.style.width = '860px';
+            
+            const clonedDropAreas = clonedDoc.querySelectorAll('.drop-area');
+            clonedDropAreas.forEach(area => {
+                area.style.flexWrap = 'wrap';
+                area.style.overflowX = 'visible';
+                area.style.whiteSpace = 'normal';
+            });
+            
+            const clonedLabels = clonedDoc.querySelectorAll('.label');
+            clonedLabels.forEach(label => {
+                label.style.width = '80px';
+                label.style.fontSize = '20px';
+            });
+        }
     }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'my-tier-list.png';
