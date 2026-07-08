@@ -85,32 +85,27 @@ html, body {
 
 /* 画面幅が600px以下の時だけ適用 */
 @media (max-width: 600px) {
-    #image-pool {
-        flex-wrap: wrap !important; 
-        justify-content: center;    
-        overflow-x: visible !important; 
-        max-height: 300px;          
-        overflow-y: auto;
-        padding: 10px;
+
+    .drop-area .item {
+        width: 65px !important; 
+        margin: 2px !important; 
     }
-   
+
+    #character-pool .item {
+        width: 80px !important; 
+        margin: 3px !important;
+    }
+
     .drop-area {
-        flex-wrap: wrap !important; 
+        flex-wrap: wrap !important;
         overflow-x: visible !important;
         padding: 5px;
     }
-    
-    .card-item {
-        width: 65px !important;   
-        height: auto !important;
-        margin: 4px !important;   
-    }
 
-    
     .label {
         width: 50px !important;
-        font-size: 16px !important;
-        flex-shrink: 0;           /* ラベルが潰れないように固定 */
+        font-size: 14px !important;
+        flex-shrink: 0;
     }
 }
 
