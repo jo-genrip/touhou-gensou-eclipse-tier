@@ -85,48 +85,32 @@ html, body {
 
 /* 画面幅が600px以下の時だけ適用 */
 @media (max-width: 600px) {
-    .drop-area {
-        flex-wrap: nowrap !important;
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
+    #image-pool {
+        flex-wrap: wrap !important; 
+        justify-content: center;    
+        overflow-x: visible !important; 
+        max-height: 300px;          
+        overflow-y: auto;
+        padding: 10px;
     }
+   
+    .drop-area {
+        flex-wrap: wrap !important; 
+        overflow-x: visible !important;
+        padding: 5px;
+    }
+    
+    .card-item {
+        width: 65px !important;   
+        height: auto !important;
+        margin: 4px !important;   
+    }
+
+    
     .label {
-        width: 40px;
-        font-size: 16px;
-    }
-    .row {
-        min-height: auto; 
-    }   
-    .pool {
-        height: 40dvh; 
-    }
-    .drop-area {
-        min-height: 44px;
-    }
-    .pool::-webkit-scrollbar,
-    .tier-container::-webkit-scrollbar {
-     width: 8px;
-     height: 8px;
-    }
-    .pool::-webkit-scrollbar-track,
-    .tier-container::-webkit-scrollbar-track {
-        background: #222; 
-        border-radius: 10px;
-    }
-    .pool::-webkit-scrollbar-thumb,
-    .tier-container::-webkit-scrollbar-thumb {
-        background: #555;
-        border-radius: 10px;
-        border: 2px solid #222;
-    }
-    .pool::-webkit-scrollbar-thumb:hover,
-    .tier-container::-webkit-scrollbar-thumb:active {
-        background: #ffeb3b;
-    }
-    .pool, .tier-container {
-        scrollbar-width: thin;   
-        scrollbar-color: #555 #222; 
+        width: 50px !important;
+        font-size: 16px !important;
+        flex-shrink: 0;           /* ラベルが潰れないように固定 */
     }
 }
 
