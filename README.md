@@ -2,7 +2,7 @@
 想起カードと呼ばれるゲーム内アイテムの評価を簡単にできるtier表を画像をドラッグ＆ドロップで作成し、画像を保存できるツールです。
 私も共同で制作しているゲームのwikiへの埋め込み用に作りました。
 ## 公開URL(実際にwikiの方で使用可能)
-[httpsw.atwiki.jpgenlippages572.html]
+[[httpsw.atwiki.jpgenlippages572.html](https://w.atwiki.jp/genlip/pages/572.html)]
 
 ◦実際にwikiの方で稼働しているtier表メーカーです。ちゃんと作成から保存までできます。
 
